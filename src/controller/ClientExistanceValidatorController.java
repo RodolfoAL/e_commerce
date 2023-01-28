@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ClientExistanceValidatorController implements IValidation {
 
-    private int index = -2;
+    private int index = -1;
 
     @Override
     public int validate(String clientEmail, List<Client> clientList) {
         if(clientList != null) {
-            index = -1;
+            index = -2;
         }
         return index;
     }

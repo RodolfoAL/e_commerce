@@ -9,7 +9,6 @@ public class InicialMenuView {
 
     public void inicializeInicialMenu() {
 
-
         do {
             try {
                 System.out.println("Digite a opção desejada: ");

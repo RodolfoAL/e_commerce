@@ -16,11 +16,11 @@ public class ClientRegistrationController {
     private StoreDataBase storeDataBase = new StoreDataBase();
     private List<Client> clientList = new ArrayList<>();
 
-    public void registerClientController(String[] newClient) {
+    public void clientEmailCheckerController(String[] newClient) {
         newClientEmail = newClient[0];
 
         clientList = storeDataBase.getClientStore();
-        ClientRegisteredValidatorController clientToRegister = new ClientRegisteredValidatorController();
+        ClientEmailValidatorController clientToRegister = new ClientEmailValidatorController();
         index = clientToRegister.validate(newClientEmail, clientList);
         ClientRegistrationView register = new ClientRegistrationView();
 

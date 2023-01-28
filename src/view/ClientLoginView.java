@@ -1,6 +1,7 @@
 package view;
 
 import controller.ClientExistanceValidatorController;
+import controller.ClientLoginController;
 import dataBase.StoreDataBase;
 import interfaces.IReceiveDataFromClient;
 import model.Client;
@@ -14,11 +15,11 @@ public class ClientLoginView implements IReceiveDataFromClient {
     private String clientEmail, clientPassword;
     private int index;
     private StoreDataBase storeDataBase;
-    private ClientLoginView(StoreDataBase storeDataBase) {
+    public ClientLoginView(StoreDataBase storeDataBase) {
         this.storeDataBase = storeDataBase;
     }
 
-    ClientExistanceValidatorController existance = new ClientExistanceValidatorController();
+    private ClientLoginController loginController = new ClientLoginController();
 
     @Override
     public void receiveClientEmailView() {
@@ -26,7 +27,10 @@ public class ClientLoginView implements IReceiveDataFromClient {
         System.out.println("---------------------------- LOGAR -------------------------------");
         System.out.println("Digite seu e-mail já cadastrado");
         clientEmail = entrance.nextLine();
-        index = existance.validate(clientEmail, storeDataBase.getClientStore());
+        loginController.clientEmailValidationController(clientEmail, storeDataBase.getClientStore());
+    }
+
+    public void receiveData() {
 
     }
 }

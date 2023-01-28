@@ -22,7 +22,7 @@ public class ClientRegistrationView implements IReceiveDataFromClient {
         String[] newClient = new String[5];
         newClient[0] = clientEmail;
 
-        clientRegistration.registerClientController(newClient);
+        clientRegistration.clientEmailCheckerController(newClient);
     }
 
     public void receiveClientDataView(String email) {

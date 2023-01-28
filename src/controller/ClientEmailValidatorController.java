@@ -5,7 +5,7 @@ import model.Client;
 
 import java.util.List;
 
-public class ClientRegisteredValidatorController implements IValidation {
+public class ClientEmailValidatorController implements IValidation {
 
     private int index = -1;
     @Override
