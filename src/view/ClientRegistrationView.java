@@ -1,27 +1,31 @@
 package view;
 
 import controller.ClientRegistrationController;
+import interfaces.IReceiveDataFromClient;
 
 import java.util.Scanner;
 
-public class ClientRegistrationView {
+public class ClientRegistrationView implements IReceiveDataFromClient {
 
     private Scanner entrance = new Scanner(System.in);
     private String clientEmail, clientCPF, clientName, clientLastName, clientPassword;
     private int index;
 
-    public void reciveClientEmailView() {
+    private ClientRegistrationController clientRegistration = new ClientRegistrationController();
+
+    @Override
+    public void receiveClientEmailView() {
 
         System.out.println("-------------------------- REGISTRAR -----------------------------");
         System.out.println("Digite um e-mail válido");
         clientEmail = entrance.nextLine();
         String[] newClient = new String[5];
         newClient[0] = clientEmail;
-        ClientRegistrationController clientRegistration = new ClientRegistrationController();
+
         clientRegistration.registerClientController(newClient);
     }
 
-    public void reciveClientDataView(String email) {
+    public void receiveClientDataView(String email) {
 
         clientEmail = email;
         System.out.println("Digite seu CPF:");
@@ -40,8 +44,7 @@ public class ClientRegistrationView {
         newClient[3] = clientLastName;
         newClient[4] = clientPassword;
 
-        ClientRegistrationController clientRegistrationController = new ClientRegistrationController();
-        clientRegistrationController.registerClientDataController(newClient);
+        clientRegistration.registerClientDataController(newClient);
     }
 
 }

@@ -13,22 +13,22 @@ public class ClientRegistrationController {
     private Scanner entrance = new Scanner(System.in);
     private String newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword;
     private int index;
-    private StoreDataBase storeDataBase;
+    private StoreDataBase storeDataBase = new StoreDataBase();
+    private List<Client> clientList = new ArrayList<>();
 
     public void registerClientController(String[] newClient) {
         newClientEmail = newClient[0];
 
-        storeDataBase = new StoreDataBase();
-        List<Client> clientList = storeDataBase.getClientStore();
+        clientList = storeDataBase.getClientStore();
         ClientRegisteredValidatorController clientToRegister = new ClientRegisteredValidatorController();
         index = clientToRegister.validate(newClientEmail, clientList);
         ClientRegistrationView register = new ClientRegistrationView();
 
         if (index != -1) {
             System.out.println("Este e-mail já foi utilizado; \n");
-            register.reciveClientEmailView();
+            register.receiveClientEmailView();
         } else {
-            register.reciveClientDataView(newClientEmail);
+            register.receiveClientDataView(newClientEmail);
         }
     }
 
@@ -41,7 +41,8 @@ public class ClientRegistrationController {
         newClientPassword = newClient[4];
 
         Client clientRegister = new Client(newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword);
-
+        clientList.add(clientRegister);
+        storeDataBase.setClientStore(clientList);
 
         press(storeDataBase.getClientStore());
     }

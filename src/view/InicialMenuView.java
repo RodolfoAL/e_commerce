@@ -20,7 +20,7 @@ public class InicialMenuView {
                 switch (option) {
                     case 1:
                         ClientRegistrationView clientRegistrationView = new ClientRegistrationView();
-                        clientRegistrationView.reciveClientEmailView();
+                        clientRegistrationView.receiveClientEmailView();
                         verify = false;
                         break;
                     case 2:
