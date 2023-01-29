@@ -4,20 +4,18 @@ import model.Client;
 import view.ClientRegistrationView;
 import view.InicialMenuView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import static dataBase.ClientDataBase.getClientStore;
-import static dataBase.ClientDataBase.setClientStore;
+import static dataBase.ClientDataBase.addClientStore;
 
 public class ClientRegistrationController {
 
     private Scanner entrance = new Scanner(System.in);
+
     private String newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword;
     private int index;
-    
-    private List<Client> clientList = new ArrayList<>();
 
     public void clientEmailCheckerController(String[] newClient) {
         newClientEmail = newClient[0];
@@ -43,14 +41,9 @@ public class ClientRegistrationController {
         newClientPassword = newClient[4];
 
         Client clientRegister = new Client(newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword);
-        clientList.add(clientRegister);
-        setClientStore(clientList);
+        addClientStore(clientRegister);
 
         press(getClientStore());
-
-        for (int i = 0; i < getClientStore().size(); i++) {
-            System.out.println(getClientStore().get(i).getName());
-        }
 
         InicialMenuView inicialMenuView = new InicialMenuView();
         inicialMenuView.inicializeInicialMenu();
@@ -58,8 +51,11 @@ public class ClientRegistrationController {
     }
 
     public void press(List<Client> list) {
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("O(s) nome(s) cadastrado(s) é(são):");
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("O nome cadastrado é: " + list.get(i).getName() + " " + list.get(i).getLastName());
+            System.out.println("     " + list.get(i).getName() + " " + list.get(i).getLastName());
         }
+        System.out.println("------------------------------------------------------------------");
     }
 }

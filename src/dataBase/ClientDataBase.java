@@ -19,7 +19,7 @@ public class ClientDataBase {
         return dataBase.clientStore;
     }
 
-    public static void setClientStore(List<Client> clientStore) {
-        dataBase.clientStore = clientStore;
+    public static void addClientStore(Client clientStore) {
+        dataBase.clientStore.add(clientStore);
     }
 }

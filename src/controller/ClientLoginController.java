@@ -26,6 +26,8 @@ public class ClientLoginController {
 
         if (index == -2) {
             System.out.println("Não existem clientes cadastrados no site ainda, Entre na loja ou se cadastre antes de logar");
+            System.out.println("--------------------------------xx--------------------------------");
+
             System.out.println();
             inicialMenu.inicializeInicialMenu();
         } else if (index == -1) {
@@ -36,6 +38,7 @@ public class ClientLoginController {
                 loginView.receivePasswordToVerify(index);
             } else if (index == -1) {
                 System.out.println("Este e-mail não foi cadastrado ainda, Entre na loja ou se cadastre antes de logar");
+                System.out.println("--------------------------------xx--------------------------------");
                 inicialMenu.inicializeInicialMenu();
             }
         }
@@ -47,7 +50,7 @@ public class ClientLoginController {
             loggedClientService.setLoggedClient(clientDataBase.getClientStore().get(index));
 
             PrintToVerify print = new PrintToVerify();
-            print.press(index, loggedClientService.getLoggedClient().getEmail(), clientDataBase.getClientStore());
+            print.print(index, loggedClientService.getLoggedClient().getEmail(), clientDataBase.getClientStore());
 
 
         } else {

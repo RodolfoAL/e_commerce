@@ -9,6 +9,7 @@ public class InicialMenuView {
     private Scanner entrance = new Scanner(System.in);
     private int option;
     private boolean verify = true;
+    private ClientRegistrationView clientRegistrationView = new ClientRegistrationView();
 
     public void inicializeInicialMenu() {
 
@@ -21,7 +22,6 @@ public class InicialMenuView {
 
                 switch (option) {
                     case 1:
-                        ClientRegistrationView clientRegistrationView = new ClientRegistrationView();
                         clientRegistrationView.receiveClientEmailView();
                         verify = false;
                         break;
