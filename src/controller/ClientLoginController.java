@@ -1,6 +1,6 @@
 package controller;
 
-import dataBase.StoreDataBase;
+import dataBase.ClientDataBase;
 import model.Client;
 import services.LoggedClientService;
 import services.PrintToVerify;
@@ -13,7 +13,7 @@ public class ClientLoginController {
 
     private String clientEmail, clientPassword;
     private int index;
-    private StoreDataBase storeDataBase;
+    private ClientDataBase clientDataBase;
     private ClientExistanceValidatorController existance = new ClientExistanceValidatorController();
     private ClientEmailValidatorController validation = new ClientEmailValidatorController();
     private InicialMenuView inicialMenu = new InicialMenuView();
@@ -26,12 +26,13 @@ public class ClientLoginController {
 
         if (index == -2) {
             System.out.println("Não existem clientes cadastrados no site ainda, Entre na loja ou se cadastre antes de logar");
+            System.out.println();
             inicialMenu.inicializeInicialMenu();
         } else if (index == -1) {
             index = validation.validate(clientEmailToValidade, clientList);
 
             if (index >= 0) {
-                ClientLoginView loginView = new ClientLoginView(storeDataBase);
+                ClientLoginView loginView = new ClientLoginView();
                 loginView.receivePasswordToVerify(index);
             } else if (index == -1) {
                 System.out.println("Este e-mail não foi cadastrado ainda, Entre na loja ou se cadastre antes de logar");
@@ -42,11 +43,11 @@ public class ClientLoginController {
 
     public void clientDataProcessor(int index, String clientPassword) {
 
-        if (clientPassword.equals(storeDataBase.getClientStore().get(index).getPassword())) {
-            loggedClientService.setLoggedClient(storeDataBase.getClientStore().get(index));
+        if (clientPassword.equals(clientDataBase.getClientStore().get(index).getPassword())) {
+            loggedClientService.setLoggedClient(clientDataBase.getClientStore().get(index));
 
             PrintToVerify print = new PrintToVerify();
-            print.press(index, loggedClientService.getLoggedClient().getEmail(), storeDataBase.getClientStore());
+            print.press(index, loggedClientService.getLoggedClient().getEmail(), clientDataBase.getClientStore());
 
 
         } else {

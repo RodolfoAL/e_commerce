@@ -1,21 +1,18 @@
 package view;
 
 import controller.ClientLoginController;
-import dataBase.StoreDataBase;
+import dataBase.ClientDataBase;
 import interfaces.IReceiveDataFromClient;
 
 import java.util.Scanner;
+import static dataBase.ClientDataBase.getClientStore;
 
 public class ClientLoginView implements IReceiveDataFromClient {
 
     private Scanner entrance = new Scanner(System.in);
     private String clientEmail, clientPassword;
     private int index;
-    private StoreDataBase storeDataBase;
 
-    public ClientLoginView(StoreDataBase storeDataBase) {
-        this.storeDataBase = storeDataBase;
-    }
 
     @Override
     public void receiveClientEmailView() {
@@ -24,7 +21,7 @@ public class ClientLoginView implements IReceiveDataFromClient {
         System.out.println("Digite seu e-mail já cadastrado:");
         clientEmail = entrance.nextLine();
         ClientLoginController loginController = new ClientLoginController();
-        loginController.clientEmailValidationController(clientEmail, storeDataBase.getClientStore());
+        loginController.clientEmailValidationController(clientEmail, getClientStore());
     }
 
     public void receivePasswordToVerify(int index) {

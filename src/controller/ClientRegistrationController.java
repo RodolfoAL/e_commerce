@@ -1,6 +1,5 @@
 package controller;
 
-import dataBase.StoreDataBase;
 import model.Client;
 import view.ClientRegistrationView;
 import view.InicialMenuView;
@@ -9,20 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static dataBase.ClientDataBase.getClientStore;
+import static dataBase.ClientDataBase.setClientStore;
+
 public class ClientRegistrationController {
 
     private Scanner entrance = new Scanner(System.in);
     private String newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword;
     private int index;
-    private StoreDataBase storeDataBase = new StoreDataBase();
+    
     private List<Client> clientList = new ArrayList<>();
 
     public void clientEmailCheckerController(String[] newClient) {
         newClientEmail = newClient[0];
 
-        clientList = storeDataBase.getClientStore();
         ClientEmailValidatorController clientToRegister = new ClientEmailValidatorController();
-        index = clientToRegister.validate(newClientEmail, clientList);
+        index = clientToRegister.validate(newClientEmail, getClientStore());
         ClientRegistrationView register = new ClientRegistrationView();
 
         if (index != -1) {
@@ -43,11 +44,17 @@ public class ClientRegistrationController {
 
         Client clientRegister = new Client(newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword);
         clientList.add(clientRegister);
-        storeDataBase.setClientStore(clientList);
+        setClientStore(clientList);
 
-        press(storeDataBase.getClientStore());
+        press(getClientStore());
+
+        for (int i = 0; i < getClientStore().size(); i++) {
+            System.out.println(getClientStore().get(i).getName());
+        }
+
         InicialMenuView inicialMenuView = new InicialMenuView();
         inicialMenuView.inicializeInicialMenu();
+
     }
 
     public void press(List<Client> list) {

@@ -1,14 +1,14 @@
 package view;
 
-import dataBase.StoreDataBase;
+import dataBase.ClientDataBase;
 
 import java.util.Scanner;
+import static dataBase.ClientDataBase.getClientStore;
 
 public class InicialMenuView {
     private Scanner entrance = new Scanner(System.in);
     private int option;
     private boolean verify = true;
-    private StoreDataBase storeDataBase;
 
     public void inicializeInicialMenu() {
 
@@ -26,7 +26,7 @@ public class InicialMenuView {
                         verify = false;
                         break;
                     case 2:
-                        ClientLoginView clientLoginView = new ClientLoginView(storeDataBase);
+                        ClientLoginView clientLoginView = new ClientLoginView();
                         clientLoginView.receiveClientEmailView();
                         verify = false;
                         break;
