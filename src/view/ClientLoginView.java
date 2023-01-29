@@ -1,12 +1,9 @@
 package view;
 
-import controller.ClientExistanceValidatorController;
 import controller.ClientLoginController;
 import dataBase.StoreDataBase;
 import interfaces.IReceiveDataFromClient;
-import model.Client;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class ClientLoginView implements IReceiveDataFromClient {
@@ -15,22 +12,26 @@ public class ClientLoginView implements IReceiveDataFromClient {
     private String clientEmail, clientPassword;
     private int index;
     private StoreDataBase storeDataBase;
+
     public ClientLoginView(StoreDataBase storeDataBase) {
         this.storeDataBase = storeDataBase;
     }
-
-    private ClientLoginController loginController = new ClientLoginController();
 
     @Override
     public void receiveClientEmailView() {
 
         System.out.println("---------------------------- LOGAR -------------------------------");
-        System.out.println("Digite seu e-mail já cadastrado");
+        System.out.println("Digite seu e-mail já cadastrado:");
         clientEmail = entrance.nextLine();
+        ClientLoginController loginController = new ClientLoginController();
         loginController.clientEmailValidationController(clientEmail, storeDataBase.getClientStore());
     }
 
-    public void receiveData() {
+    public void receivePasswordToVerify(int index) {
+        System.out.println("Agora digite sua senha correspondente:");
+        clientPassword = entrance.nextLine();
+        ClientLoginController loginController = new ClientLoginController();
+        loginController.clientDataProcessor(index, clientPassword);
 
     }
 }

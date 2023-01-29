@@ -3,6 +3,7 @@ package controller;
 import dataBase.StoreDataBase;
 import model.Client;
 import view.ClientRegistrationView;
+import view.InicialMenuView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,8 @@ public class ClientRegistrationController {
         storeDataBase.setClientStore(clientList);
 
         press(storeDataBase.getClientStore());
+        InicialMenuView inicialMenuView = new InicialMenuView();
+        inicialMenuView.inicializeInicialMenu();
     }
 
     public void press(List<Client> list) {
