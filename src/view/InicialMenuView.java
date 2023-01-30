@@ -35,7 +35,8 @@ public class InicialMenuView {
                         verify = false;
                         break;
                     case 3:
-                        System.out.println("Maravilhe-se!");
+                        StoreMenuView storeMenuView = new StoreMenuView();
+                        storeMenuView.storeMenu();
                         verify = false;
                         break;
                     default:
