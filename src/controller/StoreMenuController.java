@@ -27,6 +27,7 @@ public class StoreMenuController {
         }
         return productsToSell;
     }
+
     public String indexingType(int option) {
 
         switch (option) {
@@ -48,8 +49,6 @@ public class StoreMenuController {
         }
         return typeOfEnuns;
     }
-
-
 
 
 }

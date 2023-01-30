@@ -15,7 +15,6 @@ public class ShoppingKart {
 
     public static List<Product> listToBuy;
 
-
     public static List<Product> getListToBuy() {
         return listToBuy;
     }

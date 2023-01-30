@@ -1,9 +1,8 @@
 package controller;
 
-import model.Client;
+import view.ProductTypeMenuView;
 import view.StoreMenuView;
 
-import java.util.List;
 import static dataBase.StockDataBase.getProducts;
 import static services.ShoppingKart.addListToBuy;
 
@@ -17,9 +16,8 @@ public class AdditionOfProductToBuy {
             }
         }
 
-        StoreMenuView storeMenuView = new StoreMenuView();
-        storeMenuView.storeMenu();
-
+        ProductTypeMenuView productTypeMenuView = new ProductTypeMenuView();
+        productTypeMenuView.decideStoreOrShoppingKart();
     }
 
 }

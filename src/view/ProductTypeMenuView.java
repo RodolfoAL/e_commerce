@@ -8,6 +8,7 @@ import model.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import static dataBase.StockDataBase.getProducts;
 
 public class ProductTypeMenuView {
@@ -15,6 +16,7 @@ public class ProductTypeMenuView {
     private Scanner entrance = new Scanner(System.in);
     private int count = 1, index;
     private Product product;
+    private boolean verify = true;
 
     public void productTypeMenu(int option) {
 
@@ -49,22 +51,66 @@ public class ProductTypeMenuView {
             System.out.println("------------------------------------------------------------------");
             count++;
         }
-        System.out.println("Digite agora: ");
-        option = Integer.parseInt(entrance.nextLine());
 
-        if (option == 0) {
-            InicialMenuView inicialMenuView = new InicialMenuView();
-            inicialMenuView.inicializeInicialMenu();
-        } else if (option > 0 && option <= productsToSell.size()) {
-            System.out.println("Inserir no carrinho de compras o produto: " + productsToSell.get(option - 1).getName() + "\ncom número de identificação: " + productsToSell.get(option - 1).getIdNumber());
-            String idNumberToBuy = productsToSell.get(option - 1).getIdNumber();
-            AdditionOfProductToBuy additionOfProduct = new AdditionOfProductToBuy();
-            additionOfProduct.addingToShoppingKart(idNumberToBuy);
-        } else {
-            System.out.println("Dígito inválido, tente novamente");
-        }
+        do {
+            try {
+                System.out.println("Digite agora: ");
+                option = Integer.parseInt(entrance.nextLine());
+
+                if (option == 0) {
+                    verify = false;
+                    InicialMenuView inicialMenuView = new InicialMenuView();
+                    inicialMenuView.inicializeInicialMenu();
+                } else if (option > 0 && option <= productsToSell.size()) {
+                    verify = false;
+                    System.out.println("Inserir no carrinho de compras o produto: " + productsToSell.get(option - 1).getName() + "\ncom número de identificação: " + productsToSell.get(option - 1).getIdNumber());
+                    String idNumberToBuy = productsToSell.get(option - 1).getIdNumber();
+                    AdditionOfProductToBuy additionOfProduct = new AdditionOfProductToBuy();
+                    additionOfProduct.addingToShoppingKart(idNumberToBuy);
+                } else {
+                    System.out.println("Dígito inválido, tente novamente");
+                    verify = true;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+                System.out.println("A opção correta seria um dos números oferecidos");
+                verify = true;
+            }
+        } while (verify);
 
     }
 
+    public void decideStoreOrShoppingKart() {
 
+
+        do {
+            try {
+                System.out.println("Escolha para onde quer ir:");
+                System.out.println("1) Menu inicial \n2) Menu da Loja e continuar comprando \n3) Carrinho de compras");
+                int newOption = Integer.parseInt(entrance.nextLine());
+
+                switch (newOption) {
+                    case 1:
+                        InicialMenuView inicialMenuView = new InicialMenuView();
+                        inicialMenuView.inicializeInicialMenu();
+                        verify = false;
+                        break;
+                    case 2:
+                        StoreMenuView storeMenuView = new StoreMenuView();
+                        storeMenuView.storeMenu();
+                        verify = false;
+                        break;
+                    case 3:
+                        ShoppingKartView shoppingKartView = new ShoppingKartView();
+                        shoppingKartView.viewListOfProductsToBy();
+                        verify = false;
+                        break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+                System.out.println("A opção correta seria um dos números oferecidos");
+                verify = true;
+            }
+        } while (verify);
+    }
 }
