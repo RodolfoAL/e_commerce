@@ -49,9 +49,7 @@ public class StoreMenuController {
         return typeOfEnuns;
     }
 
-    public void addingToShoppingKart(String idNumberToBuy) {
 
-    }
 
 
 }

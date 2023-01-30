@@ -8,9 +8,9 @@ public class SimulatedClients {
 
     public static void simulate() {
 
-        Client admim = new Client("admim@admim", "12345678900", "Administrador", "do Sistema", "123");
+        Client admim = new Client("admim@admim.com", "12345678900", "Administrador", "do Sistema", "123");
         addClientStore(admim);
-        Client rodolfo = new Client("rodolfo@gmail.com", "00100100101", "Rodolfo", "Assis Lisboa", "123");
+        Client rodolfo = new Client("rodolfo@rodolfo.com", "12345678901", "Rodolfo", "Assis Lisboa", "123");
         addClientStore(rodolfo);
     }
 }

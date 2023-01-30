@@ -7,20 +7,20 @@ import java.util.List;
 
 public class ShoppingKart {
 
-    private ShoppingKart shoppingKart = new ShoppingKart();
+    private static ShoppingKart shoppingKart = new ShoppingKart();
 
     public ShoppingKart() {
         this.listToBuy = new ArrayList<>();
     }
 
-    public List<Product> listToBuy;
+    public static List<Product> listToBuy;
 
 
-    public List<Product> getListToBuy() {
+    public static List<Product> getListToBuy() {
         return listToBuy;
     }
 
-    public void addListToBuy(Product listToBuy) {
+    public static void addListToBuy(Product listToBuy) {
         shoppingKart.listToBuy.add(listToBuy);
     }
 }

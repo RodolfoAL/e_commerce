@@ -1,5 +1,6 @@
 package view;
 
+import controller.AdditionOfProductToBuy;
 import controller.StoreMenuController;
 import enuns.TypeOfProcucts;
 import model.Product;
@@ -57,7 +58,8 @@ public class ProductTypeMenuView {
         } else if (option > 0 && option <= productsToSell.size()) {
             System.out.println("Inserir no carrinho de compras o produto: " + productsToSell.get(option - 1).getName() + "\ncom número de identificação: " + productsToSell.get(option - 1).getIdNumber());
             String idNumberToBuy = productsToSell.get(option - 1).getIdNumber();
-            storeMenuController.addingToShoppingKart(idNumberToBuy);
+            AdditionOfProductToBuy additionOfProduct = new AdditionOfProductToBuy();
+            additionOfProduct.addingToShoppingKart(idNumberToBuy);
         } else {
             System.out.println("Dígito inválido, tente novamente");
         }

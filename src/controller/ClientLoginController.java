@@ -5,6 +5,7 @@ import model.Client;
 import services.LoggedClientService;
 import view.ClientLoginView;
 import view.InicialMenuView;
+import view.StoreMenuView;
 
 import java.util.List;
 
@@ -48,9 +49,8 @@ public class ClientLoginController {
         if (clientPassword.equals(clientDataBase.getClientStore().get(index).getPassword())) {
             loggedClientService.setLoggedClient(clientDataBase.getClientStore().get(index));
 
-            PrintToVerify print = new PrintToVerify();
-            print.print(index, loggedClientService.getLoggedClient().getEmail(), clientDataBase.getClientStore());
-
+            StoreMenuView storeMenuView = new StoreMenuView();
+            storeMenuView.storeMenu();
 
         } else {
             System.out.println("- A senha não confere -");
