@@ -9,6 +9,7 @@ public class StoreMenuView {
     private Scanner entrance = new Scanner(System.in);
     private int option;
     private boolean verify = true;
+    private ProductTypeMenuView productTypeMenuView = new ProductTypeMenuView();
 
     public void storeMenu() {
 
@@ -27,29 +28,27 @@ public class StoreMenuView {
 
                 switch (option) {
                     case 1:
-                        System.out.println("Dados, Miniaturas, Mousepads, etc.");
-                        /*ProductTypeMenuView productTypeMenuView = new ProductTypeMenuView();
-                        productTypeMenuView.productTypeMenu(option);*/
+                        System.out.println("Dados, Miniaturas, Mousepads, etc.\n");
                         verify = false;
                         break;
                     case 2:
-                        System.out.println("Canecas, Aventais, Copos, etc.");
+                        System.out.println("Canecas, Aventais, Copos, etc.\n");
                         verify = false;
                         break;
                     case 3:
-                        System.out.println("Senhor dos Aneis, Zombicide, The Resistance, Coup, etc.");
+                        System.out.println("Senhor dos Aneis, Zombicide, The Resistance, Coup, etc.\n");
                         verify = false;
                         break;
                     case 4:
-                        System.out.println("Dungeons & Dragons, One Ring, Tormenta 20, etc.");
+                        System.out.println("Dungeons & Dragons, One Ring, Tormenta 20, etc.\n");
                         verify = false;
                         break;
                     case 5:
-                        System.out.println("Camisetas, Jaquetas, Moletons, etc.");
+                        System.out.println("Camisetas, Jaquetas, Moletons, etc.\n");
                         verify = false;
                         break;
                     default:
-                        System.out.println("Opção inválida, o correto seria uma das opções numéricas");
+                        System.out.println("Opção inválida, o correto seria uma das opções numéricas\n");
                         verify = true;
                 }
 
@@ -59,5 +58,7 @@ public class StoreMenuView {
                 verify = true;
             }
         } while (verify);
+
+        productTypeMenuView.productTypeMenu(option);
     }
 }

@@ -1,8 +1,11 @@
 package view;
 
+import controller.StoreMenuController;
 import enuns.TypeOfProcucts;
 import model.Product;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import static dataBase.StockDataBase.getProducts;
 
@@ -32,15 +35,18 @@ public class ProductTypeMenuView {
                 break;
         }
 
-        System.out.println("Escolha um dos produtos abaixo:");
+        System.out.println("Para escolher um dos produtos abaixo, digite seu número correspondente ou digite 0 para escolher outro tipo:\n");
 
-        for (int i = 0; i < getProducts().size(); i++) {
-            System.out.println(count + ") " + getProducts().get(i).getName() + " - preço: R$" + getProducts().get(i).getPrice() +
-                    "\n    " + getProducts().get(i).getDescription());
+        StoreMenuController storeMenuController = new StoreMenuController();
+        List<Product> productsToSell;
+        productsToSell = storeMenuController.organizeList(option);
+
+        for (int i = 0; i < productsToSell.size(); i++) {
+
+            System.out.println(count + ") " + productsToSell.get(i).getName() + " - preço: R$" + productsToSell.get(i).getPrice() +
+                    "\n        (" + productsToSell.get(i).getDescription() + ")");
+            System.out.println("------------------------------------------------------------------");
             count++;
         }
-
-
-
     }
 }

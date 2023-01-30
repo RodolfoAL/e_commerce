@@ -8,6 +8,7 @@ public class InicialMenuView {
     private boolean verify = true;
     private ClientRegistrationView clientRegistrationView = new ClientRegistrationView();
 
+
     public void inicializeInicialMenu() {
 
         do {
