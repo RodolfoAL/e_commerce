@@ -4,6 +4,8 @@ import dataBase.ClientDataBase;
 
 import java.util.Scanner;
 import static dataBase.ClientDataBase.getClientStore;
+import static dataBase.Simulation.simulate;
+
 
 public class InicialMenuView {
     private Scanner entrance = new Scanner(System.in);
@@ -12,6 +14,8 @@ public class InicialMenuView {
     private ClientRegistrationView clientRegistrationView = new ClientRegistrationView();
 
     public void inicializeInicialMenu() {
+
+        simulate();
 
         do {
             try {

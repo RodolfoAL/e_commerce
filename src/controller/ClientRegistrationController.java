@@ -43,19 +43,9 @@ public class ClientRegistrationController {
         Client clientRegister = new Client(newClientEmail, newClientCPF, newClientName, newClientLastName, newClientPassword);
         addClientStore(clientRegister);
 
-        press(getClientStore());
-
         InicialMenuView inicialMenuView = new InicialMenuView();
         inicialMenuView.inicializeInicialMenu();
 
     }
 
-    public void press(List<Client> list) {
-        System.out.println("------------------------------------------------------------------");
-        System.out.println("O(s) nome(s) cadastrado(s) é(são):");
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println("     " + list.get(i).getName() + " " + list.get(i).getLastName());
-        }
-        System.out.println("------------------------------------------------------------------");
-    }
 }

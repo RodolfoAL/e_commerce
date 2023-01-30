@@ -10,6 +10,8 @@ public class Aplication {
         System.out.println("   Aqui você irá encontrar precisamente o produto que deseja!");
         System.out.println("------------------------------------------------------------------");
 
+
+        
         InicialMenuView inicialMenuView = new InicialMenuView();
         inicialMenuView.inicializeInicialMenu();
 
