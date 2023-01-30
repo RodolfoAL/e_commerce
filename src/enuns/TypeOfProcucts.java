@@ -6,7 +6,7 @@ public enum TypeOfProcucts {
     VESTUARIO ("vestuário"),
     LIVRO ("livro"),
     JOGO ("jogo"),
-    ACESSORIO ("Acessório");
+    ACESSORIO ("acessório");
 
     private String description;
 

@@ -1,5 +1,6 @@
 package view;
 
+import controller.ShoppingKartEmptinessController;
 import enuns.TypeOfProcucts;
 
 import java.util.Scanner;
@@ -22,7 +23,8 @@ public class StoreMenuView {
                         + "\n2) " + TypeOfProcucts.COZINHA.getDescription()
                         + "\n3) " + TypeOfProcucts.JOGO.getDescription()
                         + "\n4) " + TypeOfProcucts.LIVRO.getDescription()
-                        + "\n5) " + TypeOfProcucts.VESTUARIO.getDescription());
+                        + "\n5) " + TypeOfProcucts.VESTUARIO.getDescription()
+                        + "\n6) Siga para o carrinho de compras");
 
                 option = Integer.parseInt(entrance.nextLine());
 
@@ -45,6 +47,11 @@ public class StoreMenuView {
                         break;
                     case 5:
                         System.out.println("Camisetas, Jaquetas, Moletons, etc.\n");
+                        verify = false;
+                        break;
+                    case 6:
+                        ShoppingKartEmptinessController shoppingKartController = new ShoppingKartEmptinessController();
+                        shoppingKartController.verifyShoppingKartEmptiness();
                         verify = false;
                         break;
                     default:

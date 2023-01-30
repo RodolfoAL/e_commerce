@@ -2,6 +2,9 @@ package controller;
 
 import enuns.TypeOfProcucts;
 import model.Product;
+import services.ShoppingKart;
+import view.ShoppingKartView;
+import view.StoreMenuView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,9 +48,12 @@ public class StoreMenuController {
         }
         return typeOfEnuns;
     }
-    /*public Enum printProductType() {
-        return TypeOfProcucts.ACESSORIO;
-    }*/
+
+    public void addingToShoppingKart(String idNumberToBuy) {
+
+    }
+
+
 }
 
 

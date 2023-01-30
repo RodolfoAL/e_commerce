@@ -35,7 +35,7 @@ public class ProductTypeMenuView {
                 break;
         }
 
-        System.out.println("Para escolher um dos produtos abaixo, digite seu número correspondente ou digite 0 para escolher outro tipo:\n");
+        System.out.println("Para adicionar ao carrinho de compras, digite o número do produto\nou digite 0 para retornar ao menu inicial:\n");
 
         StoreMenuController storeMenuController = new StoreMenuController();
         List<Product> productsToSell;
@@ -48,5 +48,21 @@ public class ProductTypeMenuView {
             System.out.println("------------------------------------------------------------------");
             count++;
         }
+        System.out.println("Digite agora: ");
+        option = Integer.parseInt(entrance.nextLine());
+
+        if (option == 0) {
+            InicialMenuView inicialMenuView = new InicialMenuView();
+            inicialMenuView.inicializeInicialMenu();
+        } else if (option > 0 && option <= productsToSell.size()) {
+            System.out.println("Inserir no carrinho de compras o produto: " + productsToSell.get(option - 1).getName() + "\ncom número de identificação: " + productsToSell.get(option - 1).getIdNumber());
+            String idNumberToBuy = productsToSell.get(option - 1).getIdNumber();
+            storeMenuController.addingToShoppingKart(idNumberToBuy);
+        } else {
+            System.out.println("Dígito inválido, tente novamente");
+        }
+
     }
+
+
 }

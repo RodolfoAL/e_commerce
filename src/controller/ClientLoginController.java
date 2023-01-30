@@ -3,7 +3,6 @@ package controller;
 import dataBase.ClientDataBase;
 import model.Client;
 import services.LoggedClientService;
-import services.PrintToVerify;
 import view.ClientLoginView;
 import view.InicialMenuView;
 
