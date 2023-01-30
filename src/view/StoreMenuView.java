@@ -17,17 +17,19 @@ public class StoreMenuView {
                 System.out.println("------------------------------ LOJA ------------------------------");
                 System.out.println("Qual tipo de produto você deseja? Digite uma opção:");
                 TypeOfProcucts type;
-                System.out.println("1) " + TypeOfProcucts.ACESSORIO.getDescricao()
-                        + "\n2) " + TypeOfProcucts.COZINHA.getDescricao()
-                        + "\n3) " + TypeOfProcucts.JOGO.getDescricao()
-                        + "\n4) " + TypeOfProcucts.LIVRO.getDescricao()
-                        + "\n5) " + TypeOfProcucts.VESTUARIO.getDescricao());
+                System.out.println("1) " + TypeOfProcucts.ACESSORIO.getDescription()
+                        + "\n2) " + TypeOfProcucts.COZINHA.getDescription()
+                        + "\n3) " + TypeOfProcucts.JOGO.getDescription()
+                        + "\n4) " + TypeOfProcucts.LIVRO.getDescription()
+                        + "\n5) " + TypeOfProcucts.VESTUARIO.getDescription());
 
                 option = Integer.parseInt(entrance.nextLine());
 
                 switch (option) {
                     case 1:
                         System.out.println("Dados, Miniaturas, Mousepads, etc.");
+                        /*ProductTypeMenuView productTypeMenuView = new ProductTypeMenuView();
+                        productTypeMenuView.productTypeMenu(option);*/
                         verify = false;
                         break;
                     case 2:
@@ -39,7 +41,7 @@ public class StoreMenuView {
                         verify = false;
                         break;
                     case 4:
-                        System.out.println("Dungeons & Dragons, Pathfinder, One Ring, Numenera, Tormenta 20, etc.");
+                        System.out.println("Dungeons & Dragons, One Ring, Tormenta 20, etc.");
                         verify = false;
                         break;
                     case 5:

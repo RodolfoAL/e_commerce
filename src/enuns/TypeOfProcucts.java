@@ -8,13 +8,13 @@ public enum TypeOfProcucts {
     JOGO ("jogo"),
     ACESSORIO ("Acessório");
 
-    private String descricao;
+    private String description;
 
-    TypeOfProcucts (String descricao) {
-        this.descricao = descricao;
+    TypeOfProcucts (String description) {
+        this.description = description;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 }

@@ -1,10 +1,8 @@
 package view;
 
-import dataBase.ClientDataBase;
-
 import java.util.Scanner;
-import static dataBase.ClientDataBase.getClientStore;
-import static dataBase.Simulation.simulate;
+
+import static dataBase.SimulatedClients.simulate;
 
 
 public class InicialMenuView {

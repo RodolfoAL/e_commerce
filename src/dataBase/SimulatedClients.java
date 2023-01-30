@@ -4,7 +4,7 @@ import model.Client;
 
 import static dataBase.ClientDataBase.addClientStore;
 
-public class Simulation {
+public class SimulatedClients {
 
     public static void simulate() {
 
