@@ -2,9 +2,6 @@ package view;
 
 import java.util.Scanner;
 
-import static dataBase.SimulatedClients.simulate;
-
-
 public class InicialMenuView {
     private Scanner entrance = new Scanner(System.in);
     private int option;
@@ -12,8 +9,6 @@ public class InicialMenuView {
     private ClientRegistrationView clientRegistrationView = new ClientRegistrationView();
 
     public void inicializeInicialMenu() {
-
-        simulate();
 
         do {
             try {

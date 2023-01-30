@@ -1,4 +1,6 @@
+import dataBase.Stock;
 import view.InicialMenuView;
+import static dataBase.SimulatedClients.simulate;
 
 public class Aplication {
     public static void main(String[] args) {
@@ -10,7 +12,9 @@ public class Aplication {
         System.out.println("   Aqui você irá encontrar precisamente o produto que deseja!");
         System.out.println("------------------------------------------------------------------");
 
-
+        Stock stock = new Stock();
+        stock.storeProducts();
+        simulate();
         
         InicialMenuView inicialMenuView = new InicialMenuView();
         inicialMenuView.inicializeInicialMenu();
